@@ -1,0 +1,94 @@
+html,body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Open Sans',sans-serif !important;
+  overflow: overlay;
+}
+
+/*================Section 1=================*/
+
+.articleCard {
+  height: 500px;
+}
+
+.container {
+  width: 95%!important;
+}
+
+.articleContent {
+  padding-top: 50px!important;
+  padding-left: 50px!important;
+}
+
+.articleImage {
+  margin-top: 60px!important;
+  padding: 50px!important;
+  padding-right: 50px!important;
+}
+
+.right {
+ padding-left: 1000px!important;
+}
+
+.pp {
+  height: 45px!important;
+}
+
+.articleNav {
+  margin-top: 211px!important;
+}
+
+.leftBtn {
+  padding: 20px!important;
+}
+
+/*================Section 2=================*/
+
+.square {
+  height: 70px;
+  width: 70px;
+  background-color: rgb(0, 119, 255);
+  margin: 30px!important;
+}
+
+.infoCards {
+  width: 85%!important;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+  transition: transform .3s;
+  box-shadow: 2px 2px 2px 2px #e0e0e0 ;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto ;
+  padding: 10px;
+  grid-gap: 50px 50px;
+}
+.grid-item {
+  background-color: #eeeeee;
+  padding: 20px;
+}
+
+/*================Section 3=================*/
+
+.splash {
+  position: relative!important;
+  width: 500px!important;
+  margin-left: 31%!important;
+}
+
+.subs {
+  position: absolute!important;
+  width: 489px!important;
+  top: 105px!important;
+}
+
+.nLetterInput {
+  top: 160px;
+  width: 316px;
+  left: 87px;
+}
