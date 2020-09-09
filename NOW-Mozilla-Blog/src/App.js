@@ -1,9 +1,9 @@
 import React from 'react';
-import Dashboard from './layout/Dashboard'
+import LandingPage from './layout/LandingPage'
 
 function App() {
   return (
-    <Dashboard/>
+    <LandingPage/>
   );
 }
 

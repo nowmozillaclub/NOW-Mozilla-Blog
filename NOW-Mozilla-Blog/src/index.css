@@ -2,8 +2,7 @@ html,body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: 'Open Sans',sans-serif !important;
-  overflow: overlay;
+  font-family:'Lexend Deca', sans-serif;
 }
 
 /*================Section 1=================*/
@@ -17,14 +16,11 @@ html,body {
 }
 
 .articleContent {
-  padding-top: 50px!important;
-  padding-left: 50px!important;
+  padding: 20px 30px !important;
 }
 
 .articleImage {
-  margin-top: 60px!important;
-  padding: 50px!important;
-  padding-right: 50px!important;
+  padding: 20px !important;
 }
 
 .right {
@@ -53,7 +49,7 @@ html,body {
 }
 
 .infoCards {
-  width: 85%!important;
+  width: 100%!important;
 }
 
 .grid-item:hover {
@@ -65,7 +61,6 @@ html,body {
 .grid-container {
   display: grid;
   grid-template-columns: auto auto ;
-  padding: 10px;
   grid-gap: 50px 50px;
 }
 .grid-item {
@@ -73,22 +68,45 @@ html,body {
   padding: 20px;
 }
 
+@media only screen and (max-width: 992px){
+  .grid-container {
+    grid-template-columns: 1fr ;
+  }
+  .articleContent {
+    padding-top: 0px!important;
+    padding-left: 0px!important;
+    width: 90% !important;
+
+  }
+}
+@media only screen and (max-width: 600px){
+  
+}
+
 /*================Section 3=================*/
 
 .splash {
-  position: relative!important;
-  width: 500px!important;
-  margin-left: 31%!important;
+  /* position: relative!important; */
+  background-image: url(images/splash.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .subs {
-  position: absolute!important;
+  /* position: absolute!important;
   width: 489px!important;
-  top: 105px!important;
+  top: 105px!important; */
 }
 
 .nLetterInput {
-  top: 160px;
+  /* top: 160px;
   width: 316px;
-  left: 87px;
+  left: 87px; */
+}
+
+
+.now-image{
+  width: 150px !important;
+  height: 150px !important;
 }
