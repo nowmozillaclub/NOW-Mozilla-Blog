@@ -1,0 +1,112 @@
+html,body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family:'Lexend Deca', sans-serif;
+}
+
+/*================Section 1=================*/
+
+.articleCard {
+  height: 500px;
+}
+
+.container {
+  width: 95%!important;
+}
+
+.articleContent {
+  padding: 20px 30px !important;
+}
+
+.articleImage {
+  padding: 20px !important;
+}
+
+.right {
+ padding-left: 1000px!important;
+}
+
+.pp {
+  height: 45px!important;
+}
+
+.articleNav {
+  margin-top: 211px!important;
+}
+
+.leftBtn {
+  padding: 20px!important;
+}
+
+/*================Section 2=================*/
+
+.square {
+  height: 70px;
+  width: 70px;
+  background-color: rgb(0, 119, 255);
+  margin: 30px!important;
+}
+
+.infoCards {
+  width: 100%!important;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+  transition: transform .3s;
+  box-shadow: 2px 2px 2px 2px #e0e0e0 ;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto ;
+  grid-gap: 50px 50px;
+}
+.grid-item {
+  background-color: #eeeeee;
+  padding: 20px;
+}
+
+@media only screen and (max-width: 992px){
+  .grid-container {
+    grid-template-columns: 1fr ;
+  }
+  .articleContent {
+    padding-top: 0px!important;
+    padding-left: 0px!important;
+    width: 90% !important;
+
+  }
+}
+@media only screen and (max-width: 600px){
+  
+}
+
+/*================Section 3=================*/
+
+.splash {
+  /* position: relative!important; */
+  background-image: url(images/splash.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.subs {
+  /* position: absolute!important;
+  width: 489px!important;
+  top: 105px!important; */
+}
+
+.nLetterInput {
+  /* top: 160px;
+  width: 316px;
+  left: 87px; */
+}
+
+
+.now-image{
+  width: 150px !important;
+  height: 150px !important;
+}
