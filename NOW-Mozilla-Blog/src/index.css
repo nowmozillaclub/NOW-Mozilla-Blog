@@ -3,7 +3,77 @@ html,body {
   padding: 0;
   height: 100%;
   font-family:'Lexend Deca', sans-serif;
+  background: #fff3e0;
 }
+
+.sideNavPP {
+  height: 100px!important;
+}
+
+.sideNav {
+  padding-left: 25px!important;
+}
+
+.searchBar {
+  background-color: white!important;
+  border-radius: 24px!important;
+}
+
+.sideNavIcons {
+  margin-top: 10px!important;
+  height: 40px!important;
+  width: 40px!important;
+  background-color: #FF6611;
+  border-radius: 8px!important;
+}
+
+.sideNavCard {
+  border-radius: 24px!important;
+  background-color: #FF6611!important;
+  width: 250px!important;
+}
+
+.cardWrapper {
+  padding-left: 0!important;
+}
+
+.mainCards {
+  border-radius: 24px!important;
+  height: 187px!important;
+}
+
+.section2 {
+  height: 100vh!important;
+  border-radius: 24px!important;
+  background-color: #f5f5f5;
+}
+
+.articleBack {
+  height: 100vh!important;
+  background: white!important;
+  border-radius: 24px!important;
+  margin-right: 110px;
+  margin-left: 110px;
+}
+
+.articleHead {
+  margin-right: 110px;
+  margin-left: 110px;
+}
+
+.input-field:a
+
+/* body::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+body::-webkit-scrollbar-track{
+  background: black;
+}
+
+body::-webkit-scrollbar-thumb{
+  background: white;
+} */
 
 /*================Section 1=================*/
 
