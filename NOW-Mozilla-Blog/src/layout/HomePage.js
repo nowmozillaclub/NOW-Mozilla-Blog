@@ -68,7 +68,7 @@ const HomePage = () => {
                         <div className="col s12">
                             <div className="row">
                                 <div className="col s6">
-                                    <h5>Good Morning, Pratit</h5>
+                                    <h5>NOW Mozilla Blogs</h5>
                                 </div>
                                 <div className="col s6">
                                     <nav className="searchBar">

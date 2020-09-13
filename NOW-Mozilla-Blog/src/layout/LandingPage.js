@@ -32,7 +32,7 @@ const LandingPage = () => {
                                         </div>
                                         <div className="col s12 l5 articleImage">
                                             <img className="responsive-img" src={require("../images/articleImg.jpeg")} />
-                                            <p><img src={require("../images/pp.PNG")} class="circle responsive-img pp" /> By <a className="blue-text" href="#">Aimee Pearcy</a></p>
+                                            <p><img src={require("../images/pp.PNG")} className="circle responsive-img pp" /> By <a className="blue-text" href="#">Aimee Pearcy</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -56,7 +56,7 @@ const LandingPage = () => {
                                     <div className="grid-item">
                                         <div className="row">
                                             <div className="col s12 m4">
-                                                <div class="square"></div>
+                                                <div className="square"></div>
                                             </div>
                                             <div className="col s12 m8">
                                                 <p>Est officia culpa est dolor Lorem tempor irure cupidatat mollit. Duis duis anim minim nisi. Irure minim culpa proident id excepteur velit.</p>
@@ -66,7 +66,7 @@ const LandingPage = () => {
                                     <div className="grid-item">
                                         <div className="row">
                                             <div className="col s12 m4">
-                                                <div class="square"></div>
+                                                <div className="square"></div>
                                             </div>
                                             <div className="col s12 m8">
                                                 <p>Est officia culpa est dolor Lorem tempor irure cupidatat mollit. Duis duis anim minim nisi. Irure minim culpa proident id excepteur velit.</p>
@@ -76,7 +76,7 @@ const LandingPage = () => {
                                     <div className="grid-item">
                                         <div className="row">
                                             <div className="col s12 m4">
-                                                <div class="square"></div>
+                                                <div className="square"></div>
                                             </div>
                                             <div className="col s12 m8">
                                                 <p>Est officia culpa est dolor Lorem tempor irure cupidatat mollit. Duis duis anim minim nisi. Irure minim culpa proident id excepteur velit.</p>
@@ -86,7 +86,7 @@ const LandingPage = () => {
                                     <div className="grid-item">
                                         <div className="row">
                                             <div className="col s12 m4">
-                                                <div class="square"></div>
+                                                <div className="square"></div>
                                             </div>
                                             <div className="col s12 m8">
                                                 <p>Est officia culpa est dolor Lorem tempor irure cupidatat mollit. Duis duis anim minim nisi. Irure minim culpa proident id excepteur velit.</p>
@@ -99,7 +99,7 @@ const LandingPage = () => {
                     </div>
                 </div>
                 {/* <div className="col s8 offset-s2 ">
-                <h5 class="center-align subs valign-wrapper">Subscribe to our newsletter</h5>
+                <h5 className="center-align subs valign-wrapper">Subscribe to our newsletter</h5>
                 <div className="input-field s8 offset-s2">
                     <label htmlFor="email">Email</label>
                     <input type="email" id='email'/>
