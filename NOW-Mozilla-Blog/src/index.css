@@ -180,3 +180,16 @@ body::-webkit-scrollbar-thumb{
   width: 150px !important;
   height: 150px !important;
 }
+
+@media only screen and (min-width: 600px){
+  .card.horizontal{
+    width: 80%;
+    margin: .5rem auto 1rem auto;
+  }
+}
+
+@media only screen and (max-width: 480px){
+  .card-image{
+    display: none;
+  }
+}

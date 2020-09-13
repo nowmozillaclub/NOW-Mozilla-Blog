@@ -2,6 +2,8 @@ import React from 'react'
 import Footer from './Footer'
 import Banner from './Banner'
 import WhyBlogs from './WhyBlogs'
+import Subscribe from '../images/Subscribe.svg';
+import { TextInput } from 'react-materialize';
 
 
 const LandingPage = () => {
@@ -98,13 +100,27 @@ const LandingPage = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div className="col s8 offset-s2 ">
-                <h5 className="center-align subs valign-wrapper">Subscribe to our newsletter</h5>
-                <div className="input-field s8 offset-s2">
-                    <label htmlFor="email">Email</label>
-                    <input type="email" id='email'/>
+                <div className="col s12 m7">
+                    <div className="card horizontal">
+                        <div className="card-image">
+                            <img src={Subscribe} alt="Subscribe Artwork" />
+                        </div>
+                        <div className="card-stacked">
+                            <div className="card-content">
+                                <p>
+                                    Subscribe to our newsletter
+                                </p>
+                                <TextInput
+                                    id="email"
+                                    label="Enter your email..."
+                                />
+                            </div>
+                            <div className="card-action">
+                                <a href="#">Subscribe</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div> */}
             </div>
             <Footer />
         </div>
