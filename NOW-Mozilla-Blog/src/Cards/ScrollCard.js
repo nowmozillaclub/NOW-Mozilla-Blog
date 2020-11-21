@@ -32,7 +32,7 @@ export default function ScrollCard({ blog }) {
                             <div className="blog-slider__item swiper-slide">
                                 <div className="blog-slider__img">
                                     {
-                                        <img src={require("../images/now-blog.jpeg")} alt="" />
+                                        <img src={require("../images/now-circle.png")} alt="" />
                                     }
                                 </div>
                                 <div className="blog-slider__content">
