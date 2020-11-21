@@ -3,10 +3,10 @@ import { gql } from "apollo-boost";
 import { useQuery } from '@apollo/react-hooks';
 
 import { config } from "../config";
-import { Header } from "../Components/Header";
-import { Loader } from '../Components/Common'
-import { BlogContainer } from '../Components/Blog'
-import { Card } from '../Components/Blog/Card'
+import { Header } from "../components/Header";
+import { Loader } from '../components/Common'
+import { BlogContainer } from '../components/Blog'
+import { Card } from '../components/Blog/Card'
 
 const GET_POSTS = gql`
 {

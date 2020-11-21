@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { config } from '../config'
 import { getAuthenticatedUser } from '../Utils/auth'
-import { Loader } from '../Components/Common/Loader'
+import { Loader } from '../components/Common/Loader'
 
 const { enableOAuth, OAuthClientID, OAuthSecret } = config
 

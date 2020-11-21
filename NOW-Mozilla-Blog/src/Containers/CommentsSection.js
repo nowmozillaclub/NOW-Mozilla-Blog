@@ -4,7 +4,7 @@ import {
   Comment,
   CommentLink,
   CommentLinkContainer,
-} from "../Components/Post/Comment";
+} from "../components/Post/Comment";
 
 const CommentsSection = ({postUrl, comments}) => {
   return (

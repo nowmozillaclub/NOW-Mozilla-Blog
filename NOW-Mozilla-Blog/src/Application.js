@@ -23,12 +23,12 @@ const Application = () => {
 
   return (
     <>
-      <Helmet>
-          <title>{config.title}</title>
-          <meta charSet="utf-8" />
-          <meta name="description" content={config.subtitle} />
-          <meta name="theme-color" content={config.header.backgroundColor} />
-      </Helmet>
+      // <Helmet>
+      //     <title>{config.title}</title>
+      //     <meta charSet="utf-8" />
+      //     <meta name="description" content={config.subtitle} />
+      //     <meta name="theme-color" content={config.header.backgroundColor} />
+      // </Helmet>
       <ApolloProvider client={client}>
         <ThemeProvider theme={themeMode} toggleTheme={themeToggler}>
           <GlobalStyles />

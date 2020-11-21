@@ -1,8 +1,68 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Articles from './Articles'
 
+import { gql } from "apollo-boost";
+import { useQuery } from '@apollo/react-hooks';
+
+import { config } from "../config";
+import { Header } from "../components/Header";
+import { Loader } from '../components/Common'
+import { BlogContainer } from '../components/Blog'
+import { Card } from '../components/Blog/Card'
+import ScrollCard from '../Cards/ScrollCard'
+import Card2 from '../Cards/Card2'
+
+const GET_POSTS = gql`
+{
+  repository(owner: "${config.githubUserName}", name: "${config.githubRepo}") {
+    issues(first: 100, states: OPEN, filterBy: { labels: "blog" }, orderBy: { direction: DESC, field: CREATED_AT }) {
+      nodes {
+        title
+        body
+        bodyHTML
+        bodyText
+        number
+        labels(first: 100) {
+          nodes {
+            color
+            name
+            id
+          }
+        }
+        author {
+          url
+          avatarUrl
+          login
+        }
+        updatedAt
+        id
+      }
+    }
+  }
+}
+`
+
 const HomePage = () => {
+
+    const [posts, setPosts] = useState([]);
+    const { loading, error, data } = useQuery(GET_POSTS);
+
+    useEffect(() => {
+        if (!loading) {
+            if (error) {
+                console.error(error)
+            }
+
+            if (data) {
+                setPosts(data?.repository?.issues?.nodes)
+            }
+        }
+    }, [loading, error, data]);
+
+    console.log("POSTS: ", posts)
+    console.log("POSTS: ", posts.slice(0,3))
+
     return (
         <div>
             <div className="row">
@@ -87,30 +147,17 @@ const HomePage = () => {
                         </div>
                         <div className="col s12 section2">
                             <div className="row">
-                                <div className="col s8">
-                                    <Link to='/article' className="brand-logo"><Articles /></Link>
-                                </div>
-                                <div className="col s4">
-                                    <div className="col s12 cardWrapper">
-                                        <div className="card amber lighten-4 mainCards">
-                                            <div className="card-content black-text">
-                                                <span className="card-title">Card Title</span>
-                                                <p>Lorem ipsum dolor sit amet, consectetu sdfbhb hsdbfhb ashjbdfj hbkasjhdbf  ajkshdbfjhhjsbdfhbh</p>
-                                            </div>
-                                        </div>
-                                        <div className="card amber lighten-4 mainCards">
-                                            <div className="card-content black-text">
-                                                <span className="card-title">Card Title</span>
-                                                <p>Lorem ipsum dolor sit amet, consectetu sdfbhb hsdbfhb ashjbdfj hbkasjhdbf  ajkshdbfjhhjsbdfhbh</p>
-                                            </div>
-                                        </div>
-                                        <div className="card amber lighten-4 mainCards">
-                                            <div className="card-content black-text">
-                                                <span className="card-title">Card Title</span>
-                                                <p>Lorem ipsum dolor sit amet, consectetu sdfbhb hsdbfhb ashjbdfj hbkasjhdbf  ajkshdbfjhhjsbdfhbh</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div className="col s12">
+                                    {
+                                        posts.length < 3 ? <ScrollCard blog={posts}/> : <ScrollCard blog={posts.slice(0,3)}/>
+                                    }
+                                    {
+                                        loading
+                                            ? <Loader />
+                                            : posts.map((v, i) => {
+                                                return <Card2 blog={v} key={i} />;
+                                            })
+                                    }
                                 </div>
                             </div>
                         </div>
