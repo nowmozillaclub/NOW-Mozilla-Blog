@@ -4,9 +4,6 @@ import Moment from 'moment';
 import { Link } from 'react-router-dom'
 
 export default function ScrollCard({ blog }) {
-
-    console.log("CHECK THIS: ", blog)
-
     useEffect(() => {
         var swiper = new window.Swiper('.blog-slider', {
             spaceBetween: 30,
@@ -29,7 +26,7 @@ export default function ScrollCard({ blog }) {
                 {
                     blog.map((v, i) => {
                         return (
-                            <div className="blog-slider__item swiper-slide">
+                            <div className="blog-slider__item swiper-slide" key={i}>
                                 <div className="blog-slider__img">
                                     {
                                         <img src={require("../images/now-circle.png")} alt="" />

@@ -59,10 +59,6 @@ const HomePage = () => {
             }
         }
     }, [loading, error, data]);
-
-    console.log("POSTS: ", posts)
-    console.log("POSTS: ", posts.slice(0,3))
-
     return (
         <div>
             <div className="row">
@@ -136,7 +132,7 @@ const HomePage = () => {
                                             <form>
                                                 <div className="input-field">
                                                     <input id="search" type="search" required />
-                                                    <label className="label-icon" for="search"><i className="material-icons black-text">search</i></label>
+                                                    <label className="label-icon" htmlFor="search"><i className="material-icons black-text">search</i></label>
                                                     <i className="material-icons">close</i>
                                                 </div>
                                             </form>
