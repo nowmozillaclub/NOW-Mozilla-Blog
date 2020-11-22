@@ -62,11 +62,11 @@ const HomePage = () => {
     return (
         <div>
             <div className="row">
-                <div className="col s3 sideNav">
+                <div className="col s12 m3 sideNav" style={{position:"fixed"}}>
                     <div className="section">
                         <img src={require("../images/now-square.png")} className="circle responsive-img sideNavPP" />
-                        <h5>Sep 09, 2020</h5>
-                        <p className="grey-text">08:43 am</p>
+                        <h5>{new Date().toDateString()}</h5>
+                        <p className="grey-text">{new Date().toLocaleTimeString()}</p>
                     </div>
                     <div className="section">
                         <div className="row">
@@ -101,7 +101,7 @@ const HomePage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="section">
+                        <div className="section hide-on-med-and-down">
                             <div className="row">
                                 <div className="col s12 cardWrapper">
                                     <div className="card sideNavCard">
@@ -119,21 +119,21 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col s9">
+                <div className="col s12 m9 offset-m3">
                     <div className="row">
-                        <div className="col s12">
-                            <div className="row">
-                                <div className="col s6">
+                        <div className="col s12 hide-on-med-and-down">
+                            <div className="row" style={{paddingTop: "20px"}}>
+                                <div className="col s5">
                                     <h5>NOW Mozilla Blogs</h5>
                                 </div>
-                                <div className="col s6">
+                                <div className="col s5">
                                     <nav className="searchBar">
                                         <div className="nav-wrapper searchBar">
                                             <form>
                                                 <div className="input-field">
-                                                    <input id="search" type="search" required />
-                                                    <label className="label-icon" htmlFor="search"><i className="material-icons black-text">search</i></label>
-                                                    <i className="material-icons">close</i>
+                                                    <i className="material-icons prefix black-text" style={{top:0}}>search</i>
+                                                    <input id="search" type="text" style={{borderRadius: "24px", height:"100%"}} className="validate" />
+                                                    <label htmlFor="search" style={{height:"100%", top:"-10px"}}>Search for something</label>
                                                 </div>
                                             </form>
                                         </div>
@@ -145,7 +145,7 @@ const HomePage = () => {
                             <div className="row">
                                 <div className="col s12">
                                     {
-                                        posts.length < 3 ? <ScrollCard blog={posts}/> : <ScrollCard blog={posts.slice(0,3)}/>
+                                        posts.length < 3 ? <ScrollCard blog={posts} /> : <ScrollCard blog={posts.slice(0, 3)} />
                                     }
                                     {
                                         loading
