@@ -21,7 +21,7 @@ const Card2 = ({ blog }) => {
 
     return (
         <div onClick={() => openBlog(blog.title, blog.number)}>
-            <div className="container">
+            <div className="container nowblogcontainer">
                 <div className="card">
                     <i className="fas fa-arrow-right"></i>
                     <p>{blog.title}</p>

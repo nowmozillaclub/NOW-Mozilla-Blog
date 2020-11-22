@@ -27,7 +27,7 @@ export default function ScrollCard({ blog }) {
                     blog.map((v, i) => {
                         return (
                             <div className="blog-slider__item swiper-slide" key={i}>
-                                <div className="blog-slider__img">
+                                <div className="blog-slider__img NOWBlog">
                                     {
                                         <img src={require("../images/now-circle.png")} alt="" />
                                     }

@@ -49,6 +49,9 @@ const HomePage = () => {
     const { loading, error, data } = useQuery(GET_POSTS);
 
     useEffect(() => {
+        let tempAnother = document.createElement('script');
+        tempAnother.src = "//cdn.jsdelivr.net/github-cards/latest/widget.js";
+        document.getElementById("github-embed").appendChild(tempAnother);
         if (!loading) {
             if (error) {
                 console.error(error)
@@ -62,7 +65,7 @@ const HomePage = () => {
     return (
         <div>
             <div className="row">
-                <div className="col s12 m3 sideNav" style={{position:"fixed"}}>
+                <div className="col s12 m3 sideNav section hide-on-med-and-down" style={{position:"fixed"}}>
                     <div className="section">
                         <img src={require("../images/now-square.png")} className="circle responsive-img sideNavPP" />
                         <h5>{new Date().toDateString()}</h5>
@@ -70,40 +73,19 @@ const HomePage = () => {
                     </div>
                     <div className="section">
                         <div className="row">
-                            <div className="col s12">
-                                <div className="row">
-                                    <div className="col s2 sideNavIcons">
-
-                                    </div>
-                                    <div className="col s10 sideNavTabs">
-                                        <Link to='/'><h5 className="black-text">Home</h5></Link>
-                                    </div>
-                                </div>
+                            <div className="col s12 valign-wrapper" style={{margin:"10px 0"}}>
+                                <Link to='/' className="black-text valign-wrapper flow-text"><i class="material-icons navIcony">home</i><span>Home</span></Link>
                             </div>
-                            <div className="col s12">
-                                <div className="row">
-                                    <div className="col s2 sideNavIcons">
-
-                                    </div>
-                                    <div className="col s10 sideNavTabs">
-                                        <h5>Blogs</h5>
-                                    </div>
-                                </div>
+                            <div className="col s12 valign-wrapper" style={{margin:"10px 0"}}>
+                                <Link to='/homepage' className="black-text valign-wrapper flow-text"><i class="material-icons navIcony">book</i><span>Blogs</span></Link>
                             </div>
-                            <div className="col s12">
-                                <div className="row">
-                                    <div className="col s2 sideNavIcons">
-
-                                    </div>
-                                    <div className="col s10 sideNavTabs">
-                                        <a href="https://nowmozilla.club"><h5 className="black-text">About NOW</h5></a>
-                                    </div>
-                                </div>
+                            <div className="col s12 valign-wrapper" style={{margin:"10px 0"}}>
+                                <Link to='/https://nowmozilla.club' className="black-text valign-wrapper flow-text"><i class="material-icons navIcony">info_outline</i><span>About NOW</span></Link>
                             </div>
                         </div>
-                        <div className="section hide-on-med-and-down">
-                            <div className="row">
-                                <div className="col s12 cardWrapper">
+                        <div className="section hide-on-med-and-down" id="github-embed">
+                            {/* <div className="row">
+                                <div className="col s10 cardWrapper">
                                     <div className="card sideNavCard">
                                         <div className="card-content white-text">
                                             <span className="card-title">Card Title</span>
@@ -114,19 +96,25 @@ const HomePage = () => {
                                         </div>
                                     </div>
                                 </div>
+                            </div> */}
+                            <div className="github-card" 
+                                style={{
+                                    maxWidth:"100%",
+                                    height:"auto"
+                                }}
+                                data-github="nowmozillaclub" data-height="auto" data-width="90%" data-theme="default">
                             </div>
-
                         </div>
                     </div>
                 </div>
-                <div className="col s12 m9 offset-m3">
+                <div className="col m12 l9 offset-l3">
                     <div className="row">
-                        <div className="col s12 hide-on-med-and-down">
+                        <div className="col s12">
                             <div className="row" style={{paddingTop: "20px"}}>
-                                <div className="col s5">
+                                <div className="col s12 center-align l5">
                                     <h5>NOW Mozilla Blogs</h5>
                                 </div>
-                                <div className="col s5">
+                                <div className="col s10 offset-s1 m8 offset-m2 center-align l5" id="searchWrapper">
                                     <nav className="searchBar">
                                         <div className="nav-wrapper searchBar">
                                             <form>
