@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import moment from "moment";
 import Markdown from "markdown-to-jsx";
 import readingTime from "reading-time";
-import { GithubSelector, GithubCounter } from "react-reactions";
 import { userClient } from '../Utils/apollo'
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
@@ -11,11 +10,10 @@ import { config } from "../config";
 import { getEmojiByName, getNameByEmoji } from '../Utils/emoji';
 import { getAuthenticatedUser } from '../Utils/auth'
 import { Loader } from "../components/Common";
-import { PostContainer, PostTitle, PostDate, PostDateLink, PostReaction, BackButton } from "../components/Post";
+import { PostContainer, PostTitle, PostDate, PostDateLink } from "../components/Post";
 import { AuthorDetails, AuthorAvatar, AuthorName } from "../components/Post/Author";
-import { GithubLogin } from '../components/Header'
 import { HyperLink, CodeBlock } from '../components/Markdown/Overrides';
-import CommentsSection from "./CommentsSection";
+import GoBack from '../components/Post/GoBack';
 
 export default function BlogHome() {
   const issueNumber = parseInt(window.location.href.split("/").pop());
@@ -167,7 +165,7 @@ export default function BlogHome() {
     <>
       {post.title && (
         <PostContainer>
-          <BackButton onClick={() => onBackClick()}>Back</BackButton>
+          <GoBack goBack={onBackClick}></GoBack>
 
           <PostTitle>{post.title}</PostTitle>
           <div>
@@ -184,7 +182,9 @@ export default function BlogHome() {
               </div>
             </AuthorDetails>
           </div>
+          <div className="divider" style={{marginBottom:"20px"}}></div>
           <Markdown
+            id="actual-body"
             options={{
               overrides: {
                 a: {
@@ -198,21 +198,8 @@ export default function BlogHome() {
           >
             {post.body}
           </Markdown>
-          {reactionPopup && (
-            <PostReaction>
-              {userToken
-                ? <GithubSelector onSelect={emoji => toggleReaction(emoji)} />
-                : <GithubLogin isAbsolute={false} />
-              }
-            </PostReaction>
-          )}
-          <GithubCounter
-            ref={reactionsContainer}
-            counters={postReactions}
-            onSelect={emoji => toggleReaction(emoji)}
-            onAdd={() => setReactionPopup(!reactionPopup)}
-          />
-          <CommentsSection postUrl={post.url} comments={postComments} />
+          
+          
         </PostContainer>
       )}
     </>
