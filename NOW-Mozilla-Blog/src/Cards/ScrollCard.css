@@ -3,7 +3,7 @@
   width: 95%;
   position: relative;
   max-width: 800px;
-  margin: auto;
+  margin: 30px auto;
   background: #fff;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   padding: 25px;
@@ -257,4 +257,13 @@
     height: 11px;
     width: 30px;
   }
+}
+
+/* html, body,#root, nav#mobiley, #root>div>nav#mobiley, #root>div>nav#mobiley>div{
+  width: 100vw !important;
+  box-sizing: border-box !important;
+} */
+
+.sidenav-overlay{
+  height: 100%;
 }
