@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Articles from './Articles'
 
 import { gql } from "apollo-boost";
 import { useQuery } from '@apollo/react-hooks';
 
 import { config } from "../config";
-import { Header } from "../components/Header";
 import { Loader } from '../components/Common'
-import { BlogContainer } from '../components/Blog'
-import { Card } from '../components/Blog/Card'
 import ScrollCard from '../Cards/ScrollCard'
 import Card2 from '../Cards/Card2'
+import { Skeleton } from '@material-ui/lab';
 
 const GET_POSTS = gql`
 {
@@ -113,56 +110,51 @@ const HomePage = () => {
                         </div>
                     </div>
                     <div className="col s12 m12 l9 offset-l3" style={{padding:"0"}}>
-                        {/* <div className="row"> */}
-                            <nav className="show-on-medium-and-down col s12" id="mobiley" style={{display:"none", background: "#ffb94a"}}>
-                                <div className="nav-wrapper">
-                                    <a href="#!" className="brand-logo left valign-wrapper" style={{height:"100%"}}><img src={require('../images/NOWImage.jpeg')} style={{height:"100%", padding: "5px"}} alt="NOW Blogs Logo"/></a>
-                                    <a href="#" data-target="mobile-demo" className="sidenav-trigger right"><i className="material-icons">menu</i></a>
-                                </div>
-                            </nav>
+                        <nav className="show-on-medium-and-down col s12" id="mobiley" style={{display:"none", background: "#ffb94a"}}>
+                            <div className="nav-wrapper">
+                                <a href="#!" className="brand-logo left valign-wrapper" style={{height:"100%"}}><img src={require('../images/NOWImage.jpeg')} style={{height:"100%", padding: "5px"}} alt="NOW Blogs Logo"/></a>
+                                <a href="#" data-target="mobile-demo" className="sidenav-trigger right"><i className="material-icons">menu</i></a>
+                            </div>
+                        </nav>
 
-                            <ul className="sidenav" id="mobile-demo">
-                                <li><Link to='/' className="black-text valign-wrapper flow-text"><span>Home</span></Link></li>
-                                <li><Link to='/homepage' className="black-text valign-wrapper flow-text"><span>Blogs</span></Link></li>
-                                <li><Link to='/https://nowmozilla.club' className="black-text valign-wrapper flow-text"><span>About NOW</span></Link></li>
-                            </ul>
-                            <div className="col s12" style={{paddingTop: "20px"}}>
-                                {/* <div className="row"> */}
-                                    <div className="col s12 center-align l5">
-                                        <h5>NOW Mozilla Blogs</h5>
-                                    </div>
-                                    <div className="col s10 offset-s1 m8 offset-m2 center-align l5" id="searchWrapper">
-                                        <nav className="searchBar">
-                                            <div className="nav-wrapper searchBar">
-                                                <form>
-                                                    <div className="input-field">
-                                                        <i className="material-icons prefix black-text" style={{top:0}}>search</i>
-                                                        <input id="search" type="text" style={{borderRadius: "24px", height:"100%"}} className="validate" />
-                                                        <label htmlFor="search" className="truncate" style={{height:"100%", top:"-10px"}}>Search for something</label>
-                                                    </div>
-                                                </form>
+                        <ul className="sidenav" id="mobile-demo">
+                            <li><Link to='/' className="black-text valign-wrapper flow-text"><span>Home</span></Link></li>
+                            <li><Link to='/homepage' className="black-text valign-wrapper flow-text"><span>Blogs</span></Link></li>
+                            <li><Link to='/https://nowmozilla.club' className="black-text valign-wrapper flow-text"><span>About NOW</span></Link></li>
+                        </ul>
+                        <div className="col s12" style={{paddingTop: "20px"}}>
+                            <div className="col s12 center-align l5">
+                                <h5>NOW Mozilla Blogs</h5>
+                            </div>
+                            <div className="col s10 offset-s1 m8 offset-m2 center-align l5" id="searchWrapper">
+                                <nav className="searchBar">
+                                    <div className="nav-wrapper searchBar">
+                                        <form>
+                                            <div className="input-field">
+                                                <i className="material-icons prefix black-text" style={{top:0}}>search</i>
+                                                <input id="search" type="text" style={{borderRadius: "24px", height:"100%"}} className="validate" />
+                                                <label htmlFor="search" className="truncate" style={{height:"100%", top:"-10px"}}>Search for something</label>
                                             </div>
-                                        </nav>
+                                        </form>
                                     </div>
-                                {/* </div> */}
+                                </nav>
                             </div>
-                            <div className="col s12 section2">
-                                {/* <div className="row"> */}
-                                    {/* <div className="col s12"> */}
-                                        {
-                                            posts.length < 3 ? <ScrollCard blog={posts} /> : <ScrollCard blog={posts.slice(0, 3)} />
-                                        }
-                                        {
-                                            loading
-                                                ? <Loader />
-                                                : posts.map((v, i) => {
-                                                    return <Card2 blog={v} key={i} />;
-                                                })
-                                        }
-                                    {/* </div> */}
-                                {/* </div> */}
-                            </div>
-                        {/* </div> */}
+                        </div>
+                        
+                        <div className="col s12 section2">
+                            {
+                                posts.length !== 0 ? (
+                                    posts.length < 3 ? <ScrollCard blog={posts} /> : <ScrollCard blog={posts.slice(0, 3)} /> ) : 
+                                    <Skeleton variant="rect" animation="wave" width={750} height={400} style={{margin: "20px auto", borderRadius: "24px"}} />
+                            }
+                            {
+                                loading || posts.length === 0
+                                    ? [1,2,3,4,5].map(n=><Skeleton key={n} variant="rect" animation="wave" width={530} height={200} style={{margin: "20px auto"}} />)
+                                    : posts.map((v, i) => {
+                                        return <Card2 blog={v} key={i} />;
+                                    })
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
