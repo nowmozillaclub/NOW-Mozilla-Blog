@@ -10,6 +10,7 @@ import { lightTheme, darkTheme } from "./components/Theme/Theme";
 import { useDarkMode } from "./components/Theme/useDarkMode";
 import Blog from "./Containers/Blog";
 import BlogPost from "./Containers/BlogPost";
+import SkeletonBlog from './skeletons/SkeletonBlog';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
               <Route exact path='/article' component={ArticleDetail} />
               <Route exact path="/blog" component={Blog} />
               <Route exact path="/blog/:title/:issueNumber" component={BlogPost} />
+              <Route exact path="/skeleton" component={SkeletonBlog} />
             </Switch>
           </ApolloProvider>
         </div>

@@ -9,11 +9,11 @@ import { useQuery } from "@apollo/react-hooks";
 import { config } from "../config";
 import { getEmojiByName, getNameByEmoji } from '../Utils/emoji';
 import { getAuthenticatedUser } from '../Utils/auth'
-import { Loader } from "../components/Common";
 import { PostContainer, PostTitle, PostDate, PostDateLink } from "../components/Post";
 import { AuthorDetails, AuthorAvatar, AuthorName } from "../components/Post/Author";
 import { HyperLink, CodeBlock } from '../components/Markdown/Overrides';
 import GoBack from '../components/Post/GoBack';
+import SkeletonBlog from "../skeletons/SkeletonBlog";
 
 export default function BlogHome() {
   const issueNumber = parseInt(window.location.href.split("/").pop());
@@ -151,7 +151,7 @@ export default function BlogHome() {
   }, [loading, error, data, setReactionFun]);
 
   if (loading) {
-    return <Loader />;
+    return <SkeletonBlog />;
   }
 
   const onBackClick = () => {
