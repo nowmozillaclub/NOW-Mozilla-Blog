@@ -1,0 +1,70 @@
+:root {
+    --text: #2b3044;
+    --line: #ffba49;
+    /* --line: #bbc1e1; */
+    /* --line-active: #275efe; */
+    --line-active: #ff6609;
+  }
+  
+  p#going {
+    font-size: 18px;
+    margin: 0;
+    color: var(--text);
+  }
+  p#going a#backy {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    margin: 0 var(--spacing, 0px);
+    margin-left: 2px;
+    -webkit-transition: margin 0.25s;
+    transition: margin 0.25s;
+  }
+  p#going a#backy svg {
+    width: 76px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    -webkit-transform: translate(-50%, 7px) translateZ(0);
+            transform: translate(-50%, 7px) translateZ(0);
+    fill: none;
+    stroke: var(--stroke, var(--line));
+    stroke-linecap: round;
+    stroke-width: 2px;
+    stroke-dasharray: var(--offset, 69px) 278px;
+    stroke-dashoffset: 361px;
+    -webkit-transition: stroke 0.25s ease var(--stroke-delay, 0s), stroke-dasharray 0.35s;
+    transition: stroke 0.25s ease var(--stroke-delay, 0s), stroke-dasharray 0.35s;
+  }
+  p#going a#backy:hover {
+    --spacing: 4px;
+    --stroke: var(--line-active);
+    --stroke-delay: 0.1s;
+    --offset: 180px;
+  }
+/*   
+
+  
+  * {
+    box-sizing: inherit;
+  }
+  *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    min-height: 100vh;
+    display: -webkit-box;
+    display: flex;
+    font-family: "Inter", Arial;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    background: #f6f8ff;
+  } */
+
+  
