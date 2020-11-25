@@ -207,7 +207,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 @media only screen and (max-width: 480px){
-  .card-image{
+  .card-image:not(#crdImg){
     display: none;
   }
 }

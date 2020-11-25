@@ -154,12 +154,13 @@ const HomePage = (props) => {
                     <div className="col s12 m12 l9 offset-l3" style={{ padding: "0" }}>
                         <nav className="show-on-medium-and-down col s12" id="mobiley" style={{ display: "none", background: "#ffb94a" }}>
                             <div className="nav-wrapper">
-                                <a href="#!" className="brand-logo left valign-wrapper" style={{ height: "100%" }}><img src={require('../images/NOWImage.jpeg')} style={{ height: "100%", padding: "5px" }} alt="NOW Blogs Logo" /></a>
+                                <Link to="/" className="brand-logo left valign-wrapper" style={{ height: "100%", zIndex: '10' }}><img src={require('../images/NOWImage.jpeg')} style={{ height: "100%", padding: "5px" }} alt="NOW Blogs Logo" /></Link>
                                 <a href="#" data-target="mobile-demo" className="sidenav-trigger right"><i className="material-icons">menu</i></a>
                             </div>
                         </nav>
 
                         <ul className="sidenav" id="mobile-demo">
+                            <li><Link to="/" className="brand-logo valign-wrapper" style={{ height: "100%" }}><img src={require('../images/NOWImage.jpeg')} style={{ height: "60px", marginTop: "21px", width: '60px' }} alt="NOW Blogs Logo" /></Link></li>
                             <li><Link to='/' className="black-text valign-wrapper flow-text"><span>Home</span></Link></li>
                             <li><Link to='/homepage' className="black-text valign-wrapper flow-text"><span>Blogs</span></Link></li>
                             <li><Link to='/https://nowmozilla.club' className="black-text valign-wrapper flow-text"><span>About NOW</span></Link></li>
