@@ -6,7 +6,7 @@ const WhyBlogs = () => {
         <div className="row why" id="whyEnrollar">
             <div id="roll" className="col s10 offset-s1 l6 offset-l3" style={{"borderRadius":'24px'}}>
             <div className="card" style={{"borderRadius":"24px"}}>
-                <div id="crdImg" className="card-image waves-effect waves-block waves-light"
+                <div id="crdImg" className="card-image"
                 style={{"borderRadius":"24px 24px 0 0"}}
                 >
                 <img className="activator" src={ animatedCover } alt="cover"/>
