@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "07ab120f333aea1393140ffcc3f5cb62",
+    "revision": "44d001838ef6f575f721dff3fd4de8f7",
     "url": "/NOW-Mozilla-Blog/index.html"
   },
   {
-    "revision": "7c746d972826a56ac479",
+    "revision": "509669ceba4101af0088",
     "url": "/NOW-Mozilla-Blog/static/css/main.a3c31db7.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/NOW-Mozilla-Blog/static/js/2.1a575ed6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7c746d972826a56ac479",
-    "url": "/NOW-Mozilla-Blog/static/js/main.f5e3fb8c.chunk.js"
+    "revision": "509669ceba4101af0088",
+    "url": "/NOW-Mozilla-Blog/static/js/main.3676270d.chunk.js"
   },
   {
     "revision": "f2a15a5942c6b1b67ad5",

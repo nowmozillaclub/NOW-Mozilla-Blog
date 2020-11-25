@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/NOW-Mozilla-Blog/static/css/main.a3c31db7.chunk.css",
-    "main.js": "/NOW-Mozilla-Blog/static/js/main.f5e3fb8c.chunk.js",
-    "main.js.map": "/NOW-Mozilla-Blog/static/js/main.f5e3fb8c.chunk.js.map",
+    "main.js": "/NOW-Mozilla-Blog/static/js/main.3676270d.chunk.js",
+    "main.js.map": "/NOW-Mozilla-Blog/static/js/main.3676270d.chunk.js.map",
     "runtime-main.js": "/NOW-Mozilla-Blog/static/js/runtime-main.725c86e1.js",
     "runtime-main.js.map": "/NOW-Mozilla-Blog/static/js/runtime-main.725c86e1.js.map",
     "static/js/2.1a575ed6.chunk.js": "/NOW-Mozilla-Blog/static/js/2.1a575ed6.chunk.js",
     "static/js/2.1a575ed6.chunk.js.map": "/NOW-Mozilla-Blog/static/js/2.1a575ed6.chunk.js.map",
     "index.html": "/NOW-Mozilla-Blog/index.html",
-    "precache-manifest.805b1633592f3cfeb37ec3438e5ae386.js": "/NOW-Mozilla-Blog/precache-manifest.805b1633592f3cfeb37ec3438e5ae386.js",
+    "precache-manifest.e76133aca5388abf364d349625f3bf48.js": "/NOW-Mozilla-Blog/precache-manifest.e76133aca5388abf364d349625f3bf48.js",
     "service-worker.js": "/NOW-Mozilla-Blog/service-worker.js",
     "static/css/main.a3c31db7.chunk.css.map": "/NOW-Mozilla-Blog/static/css/main.a3c31db7.chunk.css.map",
     "static/js/2.1a575ed6.chunk.js.LICENSE.txt": "/NOW-Mozilla-Blog/static/js/2.1a575ed6.chunk.js.LICENSE.txt",
@@ -25,6 +25,6 @@
     "static/js/runtime-main.725c86e1.js",
     "static/js/2.1a575ed6.chunk.js",
     "static/css/main.a3c31db7.chunk.css",
-    "static/js/main.f5e3fb8c.chunk.js"
+    "static/js/main.3676270d.chunk.js"
   ]
 }
