@@ -1,7 +1,7 @@
 import React from 'react';
 import LandingPage from './layout/LandingPage'
 import HomePage from './layout/HomePage'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { HashRouter, Switch, Route } from 'react-router-dom'
 import ArticleDetail from './components/ArticleDetail'
 import { ApolloProvider } from '@apollo/react-hooks';
 import { client } from './Utils/apollo';
@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <div className="App">
           <ApolloProvider client={client}>
             <Switch>
@@ -37,7 +37,7 @@ function App() {
             </Switch>
           </ApolloProvider>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
