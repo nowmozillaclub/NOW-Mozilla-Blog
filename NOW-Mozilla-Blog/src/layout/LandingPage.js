@@ -1,48 +1,69 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Footer from './Footer'
 import Banner from './Banner'
 import WhyBlogs from './WhyBlogs'
 import Subscribe from '../images/Subscribe.svg';
 import { TextInput } from 'react-materialize';
+import { gql } from "apollo-boost";
+import { useQuery } from '@apollo/react-hooks';
+import { config } from "../config";
+import {AuthorAvatar} from "../components/Post/Author";
+
+const GET_POSTS = gql`
+{
+  repository(owner: "${config.githubUserName}", name: "${config.githubRepo}") {
+    issues(first: 100, states: OPEN, filterBy: { labels: "blog" }, orderBy: { direction: DESC, field: CREATED_AT }) {
+      nodes {
+        title
+        body
+        bodyHTML
+        bodyText
+        number
+        labels(first: 100) {
+          nodes {
+            color
+            name
+            id
+          }
+        }
+        author {
+          url
+          avatarUrl
+          login
+        }
+        updatedAt
+        id
+      }
+    }
+  }
+}
+`
 
 
-const LandingPage = () => {
+const LandingPage = (props) => {
+
+    const [posts, setPosts] = useState([]);
+    const { loading, error, data } = useQuery(GET_POSTS);
+
+
+    useEffect(() => {
+
+        if (!loading) {
+            if (error) {
+                console.error(error)
+            }
+
+            if (data) {
+                setPosts(data?.repository?.issues?.nodes)
+            }
+        }
+    }, [loading, error, data]);
+
     return (
         <div>
-            <Banner />
+            <Banner props={props}/>
             <WhyBlogs />
             <div>
-                <div className="row">
-                    <div className="col s10 offset-s1 " style={{ borderRadius: "24px" }}>
-                        <div className="card-panel" style={{ borderRadius: "24px 24px 0 0", background: "#ffb022" }}>
-                            <span className="white-text">
-                                <h4>What's new?</h4>
-                                <br />
-                            Let's have a look...
-                        </span>
-                        </div>
-                        <div className="container">
-                            <div className="section">
-                                <div className="card white z-depth-5">
-                                    <div className="row">
-                                        <div className="col s10 offset-s1 l7 articleContent">
-                                            <h4>Article 1</h4>
-                                            <p>
-                                                Id in Lorem duis consequat ad magna minim do commodo cupidatat pariatur qui culpa. Officia Lorem consequat ullamco tempor tempor ad dolor excepteur qui labore. Proident nisi excepteur tempor do ut reprehenderit laborum ullamco dolore sunt duis. Ut officia eu id velit voluptate elit do cillum Lorem cupidatat voluptate nostrud reprehenderit anim. Reprehenderit fugiat reprehenderit mollit ad qui ipsum mollit nostrud anim velit exercitation sint.
-                                        </p>
-                                            <a className="blue-text" href="#">Read more</a>
-                                        </div>
-                                        <div className="col s12 l5 articleImage">
-                                            <img className="responsive-img" src={require("../images/articleImg.jpeg")} />
-                                            <p><img src={require("../images/pp.PNG")} className="circle responsive-img pp" /> By <a className="blue-text" href="#">Aimee Pearcy</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <div className="row">
                     <div className="col s10 offset-s1 " style={{ borderRadius: "24px" }}>
                         <div className="card-panel" style={{ borderRadius: "24px 24px 0 0", background: "#ffb022" }}>
@@ -55,68 +76,27 @@ const LandingPage = () => {
                         <div className="section">
                             <div className="container infoCards">
                                 <div className="grid-container">
-                                    <div className="grid-item">
-                                        <div className="row">
-                                            <div className="col s12 m4">
-                                                <div className="square"></div>
-                                            </div>
-                                            <div className="col s12 m8">
-                                                <p>Est officia culpa est dolor Lorem tempor irure cupidatat mollit. Duis duis anim minim nisi. Irure minim culpa proident id excepteur velit.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="grid-item">
-                                        <div className="row">
-                                            <div className="col s12 m4">
-                                                <div className="square"></div>
-                                            </div>
-                                            <div className="col s12 m8">
-                                                <p>Est officia culpa est dolor Lorem tempor irure cupidatat mollit. Duis duis anim minim nisi. Irure minim culpa proident id excepteur velit.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="grid-item">
-                                        <div className="row">
-                                            <div className="col s12 m4">
-                                                <div className="square"></div>
-                                            </div>
-                                            <div className="col s12 m8">
-                                                <p>Est officia culpa est dolor Lorem tempor irure cupidatat mollit. Duis duis anim minim nisi. Irure minim culpa proident id excepteur velit.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="grid-item">
-                                        <div className="row">
-                                            <div className="col s12 m4">
-                                                <div className="square"></div>
-                                            </div>
-                                            <div className="col s12 m8">
-                                                <p>Est officia culpa est dolor Lorem tempor irure cupidatat mollit. Duis duis anim minim nisi. Irure minim culpa proident id excepteur velit.</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {
+                                        posts && posts.map((p, i) => {
+                                            if(i >= 4) {
+                                                return null
+                                            }
+                                            return (
+                                                <div onClick={() => props.history.push(`/blog/${p.title}/${p.number}`)}key={i} className="grid-item">
+                                                    <div className="row">
+                                                        <div className="col s12 m4">
+                                                        <AuthorAvatar style={{height: '80px', width: '80px'}} src={p.author.avatarUrl} alt={p.author.login} />
+                                                        </div>
+                                                        <div className="col s12 m8">
+                                                            <h5>{p.title}</h5>
+                                                            <p>{p.bodyText.slice(0, 100)}...</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    }
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col s12 m7">
-                    <div className="card horizontal">
-                        <div className="card-image">
-                            <img src={Subscribe} alt="Subscribe Artwork" />
-                        </div>
-                        <div className="card-stacked">
-                            <div className="card-content">
-                                <p>
-                                    Subscribe to our newsletter
-                                </p>
-                                <TextInput
-                                    id="email"
-                                    label="Enter your email..."
-                                />
-                            </div>
-                            <div className="card-action">
-                                <a href="#">Subscribe</a>
                             </div>
                         </div>
                     </div>

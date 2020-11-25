@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import './Card2.css'
+import defaultImage from '../images/gradient.jpg'
+
+const imgReg = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)user-images(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
+
 
 const Card2 = ({ blog }) => {
 
     const [labels, setLabels] = useState([]);
+    const [array, setArray] = useState([]);
     const history = useHistory();
 
     const openBlog = (title, number) => {
@@ -13,6 +18,10 @@ const Card2 = ({ blog }) => {
 
     useEffect(() => {
         const labels = blog.labels.nodes.filter((value) => {
+            const str = blog.body
+            console.log("Img reg: ", str.matchAll(imgReg))
+            setArray([...str.matchAll(imgReg)]);
+
             return value.name !== "blog";
         });
 
@@ -25,7 +34,11 @@ const Card2 = ({ blog }) => {
                 <div className="card">
                     <i className="fas fa-arrow-right"></i>
                     <p>{blog.title}</p>
-                    <div className="pic"></div>
+                    {
+                        array.length === 0 ? <div className="pic" style={{ backgroundImage: `url(${defaultImage})` }}></div>
+                        : <div className="pic" style={{ backgroundImage: `url(${array[0]})` }}></div>
+
+                    }
                     <ul>
                         <li></li>
                         <li></li>

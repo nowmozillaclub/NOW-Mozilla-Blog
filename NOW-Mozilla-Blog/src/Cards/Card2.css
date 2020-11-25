@@ -110,7 +110,6 @@
     z-index: 100;
     width: 400px;
     height: 200px;
-    background-image: url("https://images.unsplash.com/photo-1525543907410-b2562b6796d6?ixlib=rb-0.3.5&s=9ff8e5e718a6a40cbd0e1471235912f4&auto=format&fit=crop&w=3452&q=80");
     background-size: 100% 100%;
     filter: grayscale(100%);
   }

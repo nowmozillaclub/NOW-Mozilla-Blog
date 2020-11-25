@@ -5,7 +5,7 @@ import NOWImage from '../images/NOWImage.jpeg';
 import { Link } from 'react-router-dom'
 
 
-const Banner = () => {
+const Banner = (props) => {
     return (
         <Slider
             fullscreen={false}
@@ -25,6 +25,9 @@ const Banner = () => {
                     <p className="light grey-text text-lighten-3" style={{ fontSize: "16px" }}>
                         A Mozilla Campus Club at MPSTME, Mumbai.
                     </p>
+                    <div style={{marginTop: '25px'}} className="customBtn">
+                        <button style={{cursor: 'pointer'}} className="btnie white-text" onClick={() => {props.props.history.push('/homepage')}}>Read NOW</button>
+                    </div>
                 </Caption>
             </Slide>
 
