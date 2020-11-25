@@ -124,7 +124,7 @@ const HomePage = (props) => {
                                     <a href='https://github.com/nowmozillaclub' target='__blank' className="black-text valign-wrapper flow-text"><i className="material-icons navIcony">book</i><span>GitHub</span></a>
                                 </div>
                                 <div className="col s12 valign-wrapper" style={{ margin: "10px 0" }}>
-                                    <a href='/https://nowmozilla.club' className="black-text valign-wrapper flow-text"><i className="material-icons navIcony">info_outline</i><span>About NOW</span></a>
+                                    <a href='https://nowmozilla.club' target='__blank' className="black-text valign-wrapper flow-text"><i className="material-icons navIcony">info_outline</i><span>About NOW</span></a>
                                 </div>
                             </div>
                             <div className="section hide-on-med-and-down" id="github-embed">
