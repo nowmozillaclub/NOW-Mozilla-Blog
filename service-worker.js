@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/NOW-Mozilla-Blog/precache-manifest.253d3571a7d10c25c3b238d052ffa7df.js"
+  "/NOW-Mozilla-Blog/precache-manifest.805b1633592f3cfeb37ec3438e5ae386.js"
 );
 
 self.addEventListener('message', (event) => {
