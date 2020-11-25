@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4a58ceab2ef354253ad3de5b8d76fb52",
+    "revision": "337a7f1c48b05e4ec862ffdd870ea1e8",
     "url": "/NOW-Mozilla-Blog/index.html"
   },
   {
